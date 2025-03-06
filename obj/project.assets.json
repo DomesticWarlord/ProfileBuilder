@@ -1,0 +1,435 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "LlamaLibrary/25.109.1730.45": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows7.0/LlamaLibrary.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/LlamaLibrary.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ],
+        "contentFiles": {
+          "contentFiles/any/net8.0-windows7.0/Resources/AllHunts.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/CustomDeliveryNpcs.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Empyreum.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/GCShopItems.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Goblet.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/LavenderBeds.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Materia.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Mist.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Recipes_Anden.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Shirogane.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/net8.0-windows7.0/Resources/Ventures.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        }
+      },
+      "Lumina/5.6.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.ObjectPool": "8.0.7"
+        },
+        "compile": {
+          "lib/net8.0/Lumina.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Lumina.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Lumina.Excel/7.1.3": {
+        "type": "package",
+        "dependencies": {
+          "Lumina": "0.0.0-preview.0"
+        },
+        "compile": {
+          "lib/net8.0/Lumina.Excel.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Lumina.Excel.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.7.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.ObjectPool/8.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.ObjectPool.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.ObjectPool.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "RebornBuddy.ReferenceAssemblies/1.0.679.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows/GreyMagic.dll": {},
+          "lib/net8.0-windows/RebornBuddy.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0-windows/GreyMagic.dll": {},
+          "lib/net8.0-windows/RebornBuddy.dll": {}
+        }
+      },
+      "System.Data.DataSetExtensions/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.0/System.Data.DataSetExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Data.DataSetExtensions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LlamaLibrary/25.109.1730.45": {
+      "sha512": "nZk7TMw4+Jsu+9JMLWdFDXQdvp4XVCbWRAnnalYarb2OyTR5+BkO0mpQ7gmJ1p1uNiNxHsfDTFtzgX2b/+PQAg==",
+      "type": "package",
+      "path": "llamalibrary/25.109.1730.45",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Readme.md",
+        "content/Resources/AllHunts.json",
+        "content/Resources/CustomDeliveryNpcs.json",
+        "content/Resources/Empyreum.json",
+        "content/Resources/GCShopItems.json",
+        "content/Resources/Goblet.json",
+        "content/Resources/LavenderBeds.json",
+        "content/Resources/Materia.json",
+        "content/Resources/Mist.json",
+        "content/Resources/Recipes_Anden.json",
+        "content/Resources/Shirogane.json",
+        "content/Resources/Ventures.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/AllHunts.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/CustomDeliveryNpcs.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Empyreum.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/GCShopItems.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Goblet.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/LavenderBeds.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Materia.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Mist.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Recipes_Anden.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Shirogane.json",
+        "contentFiles/any/net8.0-windows7.0/Resources/Ventures.json",
+        "lib/net8.0-windows7.0/LlamaLibrary.dll",
+        "llamalibrary.25.109.1730.45.nupkg.sha512",
+        "llamalibrary.nuspec"
+      ]
+    },
+    "Lumina/5.6.1": {
+      "sha512": "r9b/xqmQFO1Gaf6pmiArCyotF2OA1RAS/EdSXwdo+gE61PKNU+I36EkkAiQwo8HAoDaxc6hcFhvBWIAYvJ9NBg==",
+      "type": "package",
+      "path": "lumina/5.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/net8.0/Lumina.dll",
+        "lib/net8.0/Lumina.xml",
+        "lumina.5.6.1.nupkg.sha512",
+        "lumina.nuspec"
+      ]
+    },
+    "Lumina.Excel/7.1.3": {
+      "sha512": "fEYaSEbRPknwpSyB4cSqXMUr9oRD7citBhOY3Ib5tZlKILvKPoCCNvorcn7CzaFvg5p7cQf/6+ec1DQPj0niFw==",
+      "type": "package",
+      "path": "lumina.excel/7.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net8.0/Lumina.Excel.dll",
+        "lib/net8.0/Lumina.Excel.xml",
+        "lumina.excel.7.1.3.nupkg.sha512",
+        "lumina.excel.nuspec"
+      ]
+    },
+    "Microsoft.CSharp/4.7.0": {
+      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "type": "package",
+      "path": "microsoft.csharp/4.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/Microsoft.CSharp.dll",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.3/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.dll",
+        "lib/netstandard2.0/Microsoft.CSharp.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/uap10.0.16299/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "microsoft.csharp.4.7.0.nupkg.sha512",
+        "microsoft.csharp.nuspec",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/Microsoft.CSharp.dll",
+        "ref/netcore50/Microsoft.CSharp.xml",
+        "ref/netcore50/de/Microsoft.CSharp.xml",
+        "ref/netcore50/es/Microsoft.CSharp.xml",
+        "ref/netcore50/fr/Microsoft.CSharp.xml",
+        "ref/netcore50/it/Microsoft.CSharp.xml",
+        "ref/netcore50/ja/Microsoft.CSharp.xml",
+        "ref/netcore50/ko/Microsoft.CSharp.xml",
+        "ref/netcore50/ru/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
+        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.0/Microsoft.CSharp.dll",
+        "ref/netstandard1.0/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
+        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
+        "ref/netstandard2.0/Microsoft.CSharp.dll",
+        "ref/netstandard2.0/Microsoft.CSharp.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/uap10.0.16299/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.ObjectPool/8.0.7": {
+      "sha512": "2yLweyqmpuuFSRo+I3sLHMxmnAgNcI537kBJiyv49U2ZEqo00jZcG8lrnD8uCiOJp9IklYyTZULtbsXoFVzsjQ==",
+      "type": "package",
+      "path": "microsoft.extensions.objectpool/8.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net462/Microsoft.Extensions.ObjectPool.dll",
+        "lib/net462/Microsoft.Extensions.ObjectPool.xml",
+        "lib/net8.0/Microsoft.Extensions.ObjectPool.dll",
+        "lib/net8.0/Microsoft.Extensions.ObjectPool.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.xml",
+        "microsoft.extensions.objectpool.8.0.7.nupkg.sha512",
+        "microsoft.extensions.objectpool.nuspec"
+      ]
+    },
+    "RebornBuddy.ReferenceAssemblies/1.0.679.1": {
+      "sha512": "YOf1bUCkbl5/VZSrDLHbdPKW4ocsXckg+opaJyTy0LvpdXWMOfJeZT/m+V6TL+MxUG+LuSDewa8SfuRnNixlJg==",
+      "type": "package",
+      "path": "rebornbuddy.referenceassemblies/1.0.679.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net48/GreyMagic.dll",
+        "lib/net48/RebornBuddy.exe",
+        "lib/net8.0-windows/GreyMagic.dll",
+        "lib/net8.0-windows/RebornBuddy.dll",
+        "rebornbuddy.referenceassemblies.1.0.679.1.nupkg.sha512",
+        "rebornbuddy.referenceassemblies.nuspec"
+      ]
+    },
+    "System.Data.DataSetExtensions/4.5.0": {
+      "sha512": "221clPs1445HkTBZPL+K9sDBdJRB8UN8rgjO3ztB0CQ26z//fmJXtlsr6whGatscsKGBrhJl5bwJuKSA8mwFOw==",
+      "type": "package",
+      "path": "system.data.datasetextensions/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net45/_._",
+        "lib/netstandard2.0/System.Data.DataSetExtensions.dll",
+        "ref/net45/_._",
+        "ref/netstandard2.0/System.Data.DataSetExtensions.dll",
+        "system.data.datasetextensions.4.5.0.nupkg.sha512",
+        "system.data.datasetextensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "LlamaLibrary >= 25.109.1730.45",
+      "Lumina >= 5.6.1",
+      "Lumina.Excel >= 7.1.3",
+      "Microsoft.CSharp >= 4.7.0",
+      "RebornBuddy.ReferenceAssemblies >= 1.0.679.1",
+      "System.Data.DataSetExtensions >= 4.5.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Chris\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\DataHome\\Backupstuff\\Reborn - Magitech\\Plugins\\ProfileBuilder\\ProfileBuilder.csproj",
+      "projectName": "ProfileBuilder",
+      "projectPath": "C:\\DataHome\\Backupstuff\\Reborn - Magitech\\Plugins\\ProfileBuilder\\ProfileBuilder.csproj",
+      "packagesPath": "C:\\Users\\Chris\\.nuget\\packages\\",
+      "outputPath": "C:\\DataHome\\Backupstuff\\Reborn - Magitech\\Plugins\\ProfileBuilder\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "LlamaLibrary": {
+            "target": "Package",
+            "version": "[25.109.1730.45, )"
+          },
+          "Lumina": {
+            "target": "Package",
+            "version": "[5.6.1, )"
+          },
+          "Lumina.Excel": {
+            "target": "Package",
+            "version": "[7.1.3, )"
+          },
+          "Microsoft.CSharp": {
+            "target": "Package",
+            "version": "[4.7.0, )"
+          },
+          "RebornBuddy.ReferenceAssemblies": {
+            "target": "Package",
+            "version": "[1.0.679.1, )"
+          },
+          "System.Data.DataSetExtensions": {
+            "target": "Package",
+            "version": "[4.5.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

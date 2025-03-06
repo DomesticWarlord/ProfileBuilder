@@ -299,11 +299,11 @@ namespace ProfileBuilder
                 ObjectManagerUpdate();
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    string str = $@"    <!-- {q.Name} -->\n";
+                    string str = $@"    <!-- {q.Name} -->" + "\n";
 
                     if (PreviousQuestString((uint)q.GlobalId) != null)
                     {
-                        str += $@"    <If Condition=""{PreviousQuestString((uint)q.GlobalId)} and not IsQuestCompleted({q.GlobalId})"">" + "\n";
+                        str += $@"    <If Condition=""{PreviousQuestString((uint)q.GlobalId)} and not IsQuestCompleted({q.GlobalId}) and Core.Player.Classlevel &gt; {GetLevelQuest((uint)q.GlobalId)}"">" + "\n";
                     }
                     else
                     {
@@ -950,7 +950,7 @@ namespace ProfileBuilder
             {
                 Logging.WriteDiagnostic($"GetPreviousQuestId({questId}) = {previousQuestId}");
                 StringBuilder sb = new();
-                sb.AppendLine(@"IsQuestCompleted(" + previousQuestId + ")");
+                sb.Append(@"IsQuestCompleted(" + previousQuestId + ")");
                 return sb.ToString();
             }
 

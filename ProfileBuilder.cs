@@ -11,7 +11,10 @@ namespace ProfileBuilder
 
         public override Version Version => new Version(1, 1, 0);
 
-        public override string Name => "Profile Builder";
+        public override string Name => "Profile Builder Compiled";
+        
+        public override string Description => "Compiled plugin to assist with creating OrderBot Profiles.";
+
 
         internal Thread _guiThread;
         internal Gui _guiForm;

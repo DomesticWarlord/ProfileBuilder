@@ -13,6 +13,7 @@ using ff14bot.Helpers;
 using ff14bot.Managers;
 using ff14bot.Objects;
 using ff14bot.RemoteWindows;
+using Lumina.Excel;
 using Lumina.Excel.Sheets;
 using static Helpers.General;
 
@@ -919,38 +920,60 @@ namespace ProfileBuilder
             return sb.ToString();
         }
 
-        static Dictionary<uint, uint> questDictionary;
+        static Dictionary<uint, QuestInformation>? questDictionary;
 
 
-        static Dictionary<uint, uint> BuildQuestDictionary(IEnumerable<Quest> sheet)
+        static Dictionary<uint, QuestInformation> BuildQuestDictionary(IEnumerable<Quest> sheet)
         {
-            var dic = new Dictionary<uint, uint>();
+            if (questDictionary != null)
+            {
+                return questDictionary;
+            }
+
+            Dictionary<uint, QuestInformation> dic = new();
+
             foreach (var item in sheet)
             {
-                var previous = item.PreviousQuest;
+                var qi = new QuestInformation();
+
+                foreach (ushort q in item.ClassJobLevel.Where(q => q > qi.ClassQuestLevel))
+                {
+                    qi.ClassQuestLevel = q;
+                }
+
+                Collection<RowRef<Quest>> previous = item.PreviousQuest;
+
                 if (previous.Count > 0)
                 {
-                    foreach (var q in item.PreviousQuest)
+                    foreach (RowRef<Quest> q in item.PreviousQuest.Where(q => q.IsValid))
                     {
-                        if (q.IsValid)
-                        {
-                            dic[item.RowId] = q.RowId;
-                        }
+                        qi.PreviousQuestId = q.RowId;
                     }
                 }
+
+                dic[item.RowId] = qi;
             }
-            return dic;
+
+            questDictionary = dic;
+
+            return questDictionary;
+        }
+
+        private uint GetLevelQuest(uint questId)
+        {
+            QuestInformation qi = questDictionary[questId];
+            return (uint)qi.ClassQuestLevel - 1;
         }
 
         private string PreviousQuestString(uint questId)
         {
-            bool res = questDictionary.TryGetValue(questId, out uint previousQuestId);
+            QuestInformation qi = questDictionary[questId];
 
-            if (res)
+            if (qi.PreviousQuestId != 0)
             {
-                Logging.WriteDiagnostic($"GetPreviousQuestId({questId}) = {previousQuestId}");
+                Logging.WriteDiagnostic($"GetPreviousQuestId({questId}) = {qi.PreviousQuestId}");
                 StringBuilder sb = new();
-                sb.Append(@"IsQuestCompleted(" + previousQuestId + ")");
+                sb.Append(@"IsQuestCompleted(" + qi.PreviousQuestId + ")");
                 return sb.ToString();
             }
 

@@ -7,7 +7,7 @@ namespace ProfileBuilder
 {
     public class ProfileBuilder : BotPlugin
     {
-        public override string Author => "Mastahg, modified by Sodimm, further modified by TuckMeIntoBread";
+        public override string Author => "Mastahg, Sodimm, TuckMeIntoBread, RedWine, DomesticWarlord";
 
         public override Version Version => new Version(1, 1, 0);
 

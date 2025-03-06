@@ -36,7 +36,16 @@ namespace ProfileBuilder
             cBoxFlight.Checked = false;
             AllowTransparency = true;
             RefreshGUI();
+
+            var lumina = new Lumina.GameData("C:\\Program Files (x86)\\SquareEnix\\FINAL FANTASY XIV - A Realm Reborn\\game\\sqpack");
+            var sheet = lumina.GetExcelSheet<Quest>();
+
+            Logging.WriteDiagnostic("Building Quest Dictionary");
+            questDictionary = BuildQuestDictionary(sheet);
+            Logging.WriteDiagnostic("Finished building Quest Dictionary - " + questDictionary.Count + " quests found.");
+
         }
+
 
         private void Gui_Load(object sender, EventArgs e)
         {
@@ -288,10 +297,10 @@ namespace ProfileBuilder
             using (Core.Memory.TemporaryCacheState(false))
             {
                 ObjectManagerUpdate();
-                string str = string.Empty;
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    str = $@"    <!-- {q.Name} -->";
+                    string str = $@"    <!-- {q.Name} -->\n";
+
                     if (PreviousQuestString((uint)q.GlobalId) != null)
                     {
                         str += $@"    <If Condition=""{PreviousQuestString((uint)q.GlobalId)} and not IsQuestCompleted({q.GlobalId})"">" + "\n";
@@ -301,7 +310,7 @@ namespace ProfileBuilder
                         str += $@"    <If Condition=""not IsQuestCompleted({q.GlobalId})"">" + "\n";
 
                     }
-                    str = $@"<If Condition=""not HasQuest({q.GlobalId})"">" + "\n";
+                    str += $@"<If Condition=""not HasQuest({q.GlobalId})"">" + "\n";
                     str += GetToString();
                     str += $@"        <If Condition=""IsQuestAcceptQualified({q.GlobalId})"">
           <PickupQuest QuestId=""{q.GlobalId}"" NpcId=""{Core.Target.NpcId}""/>
@@ -912,31 +921,6 @@ namespace ProfileBuilder
 
         static Dictionary<uint, uint> questDictionary;
 
-        static void Main(string[] args)
-        {
-            var lumina = new Lumina.GameData("C:\\Program Files (x86)\\SquareEnix\\FINAL FANTASY XIV - A Realm Reborn\\game\\sqpack");
-            var sheet = lumina.GetExcelSheet<Quest>();
-
-            questDictionary = BuildQuestDictionary(sheet);
-
-            Console.Write("Enter Quest ID: ");
-            if (uint.TryParse(Console.ReadLine(), out uint questId))
-            {
-                uint? previousQuestId = GetPreviousQuestId(questId);
-                if (previousQuestId.HasValue)
-                {
-                    Console.WriteLine($"Previous Quest ID: {previousQuestId.Value}");
-                }
-                else
-                {
-                    Console.WriteLine("No previous quest found for the given Quest ID.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a valid numeric Quest ID.");
-            }
-        }
 
         static Dictionary<uint, uint> BuildQuestDictionary(IEnumerable<Quest> sheet)
         {
@@ -958,24 +942,20 @@ namespace ProfileBuilder
             return dic;
         }
 
-        static uint? GetPreviousQuestId(uint questId)
-        {
-            return questDictionary.TryGetValue(questId, out uint previousQuestId) ? previousQuestId : (uint?)null;
-        }
-
         private string PreviousQuestString(uint questId)
         {
-            if (GetPreviousQuestId(questId) != null)
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine(@"IsQuestCompleted(" + GetPreviousQuestId(questId) + ")");
-                return sb.ToString();
+            bool res = questDictionary.TryGetValue(questId, out uint previousQuestId);
 
-            }
-            else
+            if (res)
             {
-                return null;
+                Logging.WriteDiagnostic($"GetPreviousQuestId({questId}) = {previousQuestId}");
+                StringBuilder sb = new();
+                sb.AppendLine(@"IsQuestCompleted(" + previousQuestId + ")");
+                return sb.ToString();
             }
+
+            Logging.WriteDiagnostic($"GetPreviousQuestId({questId}) = false (no previous quest found)");
+            return null;
         }
 
         private string NonLisbethMoveString()

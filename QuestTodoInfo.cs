@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using ff14bot.Managers;
 
-namespace ProfileDevelopment
+namespace ProfileBuilder
 {
     public class QuestTodoInfo
     {

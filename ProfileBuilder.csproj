@@ -40,4 +40,13 @@
     <Compile Remove="ProfileBuilderLoader.cs" />
     <Content Include="ProfileBuilderLoader.cs" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <PropertyGroup>
+      <PostBuildCommands><![CDATA[echo "Post Build"
+                xcopy /Y "$(TargetDir)$(TargetFileName)" "$(StagingDir)\$(TargetName)\"
+                xcopy /Y "$(SolutionDir)ProfileBuilderLoader.cs" "$(StagingDir)\$(TargetName)\"
+				echo "Done"]]></PostBuildCommands>
+    </PropertyGroup>
+    <Exec Command="$(PostBuildCommands)" />
+  </Target>
 </Project>

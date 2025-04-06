@@ -403,11 +403,11 @@ namespace ProfileBuilder
                 string str = string.Empty;
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
+                    str = $@"      <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
                     str +=
-                        $@"      <HandOver{ItemIdString}NpcId=""{Core.Target.NpcId}"" XYZ=""{TargetLocation}"" QuestId=""{q.GlobalId}"" StepId=""{q.Step}""/>
-    </If>";
+                        $@"		<HandOver{ItemIdString}NpcId=""{Core.Target.NpcId}"" XYZ=""{TargetLocation}"" QuestId=""{q.GlobalId}"" StepId=""{q.Step}""/>
+      </If>";
                     UpdatePosition();
                     await Output(str);
                 }
@@ -423,7 +423,7 @@ namespace ProfileBuilder
             if (_gameObjects == null || _gameObjects.Count == 0)
             {
                 return
-                    $@"<UseObject NpcId=""{GameObjectManager.Target.NpcId}"" XYZ=""{TargetLocation}"" {UseObjectCondition(q)} />";
+                    $@"  <UseObject NpcId=""{GameObjectManager.Target.NpcId}"" XYZ=""{TargetLocation}"" {UseObjectCondition(q)} />";
             }
 
             Dictionary<uint, string> objs = new Dictionary<uint, string>();
@@ -440,7 +440,7 @@ namespace ProfileBuilder
             if (objs.Count == 1)
             {
                 result =
-                    $@"<UseObject NpcId=""{objs.FirstOrDefault().Key}"" XYZ=""{objs.FirstOrDefault().Value}"" {UseObjectCondition(q)} />";
+                    $@"	<UseObject NpcId=""{objs.FirstOrDefault().Key}"" XYZ=""{objs.FirstOrDefault().Value}"" {UseObjectCondition(q)} />";
             }
             else if (objs.Count > 1)
             {
@@ -492,10 +492,10 @@ namespace ProfileBuilder
                 string str = string.Empty;
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
+                    str = $@"		  <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
                     str += $@"      {GetUseObjectString(q)}
-    </If>";
+      </If>";
                     _gameObjects.Clear();
                     UpdatePosition();
                     await Output(str);
@@ -543,8 +543,8 @@ namespace ProfileBuilder
                 {
                     str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
-                    str += $@"<Grind grindRef=""{q.GlobalId}"" while=""GetQuestStep({q.GlobalId}) == {q.Step}"" />
-    </If>" + "\n";
+                    str += $@"		<Grind grindRef=""{q.GlobalId}"" while=""GetQuestStep({q.GlobalId}) == {q.Step}"" />
+      </If>" + "\n";
                     str += $@"{GetGrindAreaString(q.Step, q.GlobalId)}";
                     _gameObjects.Clear();
                     UpdatePosition();
@@ -627,11 +627,11 @@ namespace ProfileBuilder
                 string str = string.Empty;
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
+                    str = $@"      <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
-                    str += $@"      {GetUseItemString(q.Step, q.GlobalId)}
-    </If>";
-                    _gameObjects.Clear();
+                    str +=
+                        $@"		<UseItem{ItemIdString}NpcId=""{Core.Target.NpcId}"" XYZ=""{TargetLocation}"" QuestId=""{q.GlobalId}"" StepId=""{q.Step}""/>
+      </If>";
                     UpdatePosition();
                     await Output(str);
                 }
@@ -992,12 +992,10 @@ namespace ProfileBuilder
 
             if (IsFlightEnabled && WorldManager.CanFly)
             {
-                sb.Append($@"<If condition=""not IsOnMap({ZoneId})"">");
-                    sb.Append(TeleportTo);
-                    sb.Append($@"</If>");
-
-                sb.AppendLine(
-                    $@"        <FlyTo AllowedVariance=""1"" XYZ=""{PlayerLocation}"" Land=""True""/> <!-- ZoneId=""{ZoneId}"" -->");
+                sb.AppendLine($@"		<If condition=""not IsOnMap({ZoneId})"">");
+                sb.AppendLine(TeleportTo);
+                sb.AppendLine($@"		</If>");
+                sb.AppendLine($@"		<FlyTo AllowedVariance=""1"" XYZ=""{PlayerLocation}"" Land=""True""/> <!-- ZoneId=""{ZoneId}"" -->");
             }
             else if (MoveToOnly)
             {
@@ -1029,7 +1027,7 @@ namespace ProfileBuilder
                     str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
                     str += $@"      {GetEmoteNPCString(q.Step, q.GlobalId)}
-    </If>";
+      </If>";
                     UpdatePosition();
                     await Output(str);
                 }
@@ -1056,10 +1054,10 @@ namespace ProfileBuilder
                 string str = string.Empty;
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
+                    str = $@"      <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
                     str += $@"      {GetSnipetring(q.Step, q.GlobalId)}
-    </If>";
+      </If>";
                     UpdatePosition();
                     await Output(str);
                 }
@@ -1083,10 +1081,10 @@ namespace ProfileBuilder
                 string str = string.Empty;
                 if (cBoxActiveQuests.SelectedItem is QuestWork q)
                 {
-                    str = $@"    <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
+                    str = $@"      <If Condition=""{QuestStepConditionString(q)}"">" + "\n";
                     str += GetToString();
-                    str += $@"      <WaitWhile Condition=""{QuestStepConditionString(q)}""/>
-    </If>";
+                    str += $@"		<WaitWhile Condition=""{QuestStepConditionString(q)}""/>
+      </If>";
                     UpdatePosition();
                     await Output(str);
                 }
